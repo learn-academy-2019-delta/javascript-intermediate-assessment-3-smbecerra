@@ -5,7 +5,7 @@ Answer the following questions. First, without external resources. Challenge you
 
 1. What are the HTTP verbs? Which CRUD action corresponds to each verb?
 
-  Your answer:
+  Your answer: Hyper-Text-Transfer-Protocol
 
   Researched answer:
 
