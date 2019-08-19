@@ -26,7 +26,7 @@ var fullArr2 = ["hello", 7, 23, -823, false, 78, null, "67", 6, "number"]
 
 
 // Almost there! Need help with checking for types. 
-const oddChecker = (arr) => arr.filter(num => num % 2 > 1 || num % 2 > 0 && num != typeof(String() || Boolean()));
+const oddChecker = (arr) => arr.filter(num => num % 2 > 1 || num % 2 > 0 && num != typeof(String() || num != Boolean()));
 console.log(oddChecker(fullArr1))
 console.log(oddChecker(fullArr2))
 
