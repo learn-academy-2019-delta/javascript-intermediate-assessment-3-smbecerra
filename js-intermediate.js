@@ -18,18 +18,25 @@ console.log(getFib(10))
 
 // 2. Write a function called oddChecker that takes in an array and returns a new array of only odd numbers.
 
-
 var fullArr1 = [4, 9, 0, "7", 8, true, "hey", 7, 199, -9, false, "hola"]
 // // Expected output: [9, 7, 199, -9]
 var fullArr2 = ["hello", 7, 23, -823, false, 78, null, "67", 6, "number"]
 // // Expected output: [7, 23, -823]
 
 
-// Almost there! Need help with checking for types. 
-const oddChecker = (arr) => arr.filter(num => num % 2 > 1 || num % 2 > 0 && num != typeof(String() || num != Boolean()));
+const oddChecker = (arr) => arr.filter(num => num % 2 !== 0 && typeof num === "number");
 console.log(oddChecker(fullArr1))
 console.log(oddChecker(fullArr2))
 
+// --------------------------  Sarah's example ---------------------------------
+// var fullArr1 = [4, 9, 0, "7", 8, true, "hey", 7, 199, -9, false, "hola"]
+// const oddChecker = (arr) => {
+// let onlyOdds = arr.filter(num => num % 2 !== 0 && typeof num === "number"
+// )
+// return onlyOdds
+// }
+// console.log(oddChecker(fullArr1))
+// -----------------------------------------------------------------------------
 
 // 3. Given the object below, complete the console.log to find specific information:
 
@@ -122,25 +129,51 @@ function theMiddle(str) {
 
 // 8. Write a program to get the area of a sphere using object classes. Create three spheres with different radi as test cases. Area of a sphere =  4πr^2 (four pi r squared)
 
-let roundGang = {
-   Earth: {radius: 3958.8,},
-   Moon: {radius: 1079.4,},
-   Jupiter: {radius: 43441}
+// -----------------The old way below --------------------------
+// let roundGang = {
+//   Earth: {radius: 3958.8,},
+//   Moon: {radius: 1079.4,},
+//   Jupiter: {radius: 43441}
    
+// }
+
+// const areaOfSphere = (sphere) => {
+//       return "The Earth's area is " + 4 * 3.14 * Math.pow(roundGang.Earth.radius, 2) + " square miles. "
+//       +
+//       " The Moon's area is " + 4 * 3.14 * Math.pow(roundGang.Moon.radius, 2) + " square miles. "
+//       +
+//       " Jupiter's area is " + 4 * 3.14 * Math.pow(roundGang.Jupiter.radius, 2) + " squares miles."
+// }
+
+// console.log(areaOfSphere(roundGang))
+// -------------------The old way above --------------------------
+
+class roundGang {
+  constructor(radius) {
+  this.radius = radius
+  }
+  
+  areaOfSphere(){
+    return 4 * Math.PI * Math.pow(this.radius, 2)
+  }
+  
+  get area(){
+    return this.areaOfSphere()
+  }
+  
 }
 
+let circleOne = new roundGang(10)
+let circleTwo = new roundGang(20)
+let circleThree = new roundGang(30)
+
+console.log(circleOne.area)
 
 
 
-const areaOfSphere = (sphere) => {
-      return "The Earth's area is " + 4 * 3.14 * Math.pow(roundGang.Earth.radius, 2) + " square miles. "
-      +
-      " The Moon's area is " + 4 * 3.14 * Math.pow(roundGang.Moon.radius, 2) + " square miles. "
-      +
-      " Jupiter's area is " + 4 * 3.14 * Math.pow(roundGang.Jupiter.radius, 2) + " squares miles."
-}
 
-console.log(areaOfSphere(roundGang))
+
+
 
 // 9. Use object destructuring to return the nested values of specs. Expected output: 4, "manual"
 // Don't overthink this one, it's just destrcturing practice.
@@ -153,12 +186,17 @@ var myCar = {
     transmission: "manual",
   }
 }
+let {doors, transmission} = myCar.specs
 
-let myDoors = "My car has " + myCar.specs.doors + " doors."
-let myTransmission = "My car has a " + myCar.specs.transmission + " transmission."
+let myDoors = "My car has " + doors + " doors."
+let myTransmission = "My car has a " + transmission + " transmission."
 
 console.log(myDoors)
 console.log(myTransmission)
+
+// let myDoors1 = `My car has ${doors} doors` 
+// console.log(myDoors1)
+
 
 
 
